@@ -22,7 +22,7 @@ if ($conn->connect_error) {
     die("连接失败: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM subitem";
+$sql = "SELECT * FROM subitem ORDER BY id;";
 $result = $conn->query($sql);
 $arr1;
 $arr="";
