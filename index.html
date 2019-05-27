@@ -42,6 +42,7 @@
     <script src="js/qrcode.js"></script>
     <script src="js/jquery.lazyload.js"></script>
     <link rel="stylesheet" href="./images/icon/iconfont.css">
+
     <style type="text/css">
         header.am-topbar {
             background: rgb(234, 186, 202);
@@ -102,6 +103,39 @@
             margin-top: 0
         }
 
+        .am-form-field {
+            color: #ffb5b6;
+            border: 2px solid #eabaca
+        }
+
+        .jq-btn {
+            background-color: #f08080;
+            border-color: #fdffdf;
+        }
+
+        .am-btn-warning:focus,
+        .am-btn-warning:hover {
+            background-color: #ff6666;
+        }
+
+        @media only screen and (max-width: 640px) {
+
+
+            /*公共*/
+            .star{
+                margin: 10px 0 10px 0
+            }
+            h3,
+            h1,
+            h2 {
+                font-size: 14px;
+            }
+
+            hr {
+                margin: 0 0 3px 0;
+            }
+        }
+
         /* #imgboxq{
              border:1px solid #FFF; width:300px; height:300px;overflow:hidden
         }
@@ -120,9 +154,21 @@
                 <a href="#"><img src="images/logo.png" alt=""></a>
             </h1>
 
-            <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-warning am-show-sm-only" data-am-collapse="{target: '#collapse-head'}">
+
+
+            <!-- <input type="search" placeholder="Search"> -->
+            <!-- <div class="am-input-group">
+               
+                <input type="text" class="am-form-field">
+                <span class="am-input-group-btn">
+                    <button class="am-btn am-btn-default" type="button"><span
+                            class="am-icon-search"></span> </button>
+                </span>
+            </div> -->
+            <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-warning jq-btn am-show-sm-only"
+                data-am-collapse="{target: '#collapse-head'}">
                 <span class="am-sr-only">导航切换</span>
-                <span class="am-icon-bars"></span>
+                <span class="am-icon-search"></span>
             </button>
 
             <div class="am-collapse am-topbar-collapse" id="collapse-head">
@@ -143,8 +189,8 @@
                         <li><a href="cases.html">4. 全部案例</a></li>
                     </ul>
                 </li>
-                <li><a href="profile.html">评测</a></li>
-                <li><a href="events.html">活动</a></li> -->
+                <li><a href="profile.html">评测</a></li>-->
+
                 </ul>
 
                 <!-- <div class="am-topbar-right">
@@ -154,6 +200,20 @@
             <div class="am-topbar-right">
                 <button class="am-btn am-btn-danger am-topbar-btn am-btn-sm"><span class="am-icon-user"></span> 登录</button>
             </div> -->
+                <form class="am-topbar-form am-topbar-right am-form-inline" role="search">
+                    <div class="am-form-group">
+                        <input type="text" id="jq-input" class="am-form-field am-input-sm am-round"
+                            placeholder="请键入关键字">
+                        <button id="jq-btn" class="am-btn am-btn-default am-form-field am-input-sm am-round jq-btn"
+                            type="button"><i class="am-icon-search"></i>搜索</button>
+
+
+                        <!-- <span class="am-input-group-btn">
+                    <button class="am-btn am-btn-default" type="button"><span
+                            class="am-icon-search"></span> </button>
+                </span> -->
+                    </div>
+                </form>
             </div>
         </div>
     </header>
@@ -164,29 +224,32 @@
                 <div data-am-widget="slider" class="am-slider am-slider-c1" data-am-slider='{"directionNav":false}'>
                     <ul class="am-slides">
                         <li>
-                            <a href="#"><img src="images/1.jpg"></a>
+                            <a href="#"><img src="images/12.jpg"></a>
                             <!-- <div class="am-slider-desc">远方 有一个地方 那里种有我们的梦想</div> -->
 
                         </li>
                         <li>
-                            <a href="#"><img src="images/图层 1.png"></a>
+                            <a href="#"><img src="images/图层 1.jpg"></a>
                             <!-- <div class="am-slider-desc">某天 也许会相遇 相遇在这个好地方</div> -->
 
                         </li>
                         <li>
-                            <a href="#"><img src="images/图层 2.png"></a>
+                            <a href="#"><img src="images/图层 2.jpg"></a>
                             <!-- <div class="am-slider-desc">不要太担心 只因为我相信 终会走过这条遥远的道路</div> -->
 
                         </li>
                         <li>
-                            <a href="#"><img src="images/图层 3.png"></a>
+                            <a href="#"><img src="images/图层 3.jpg"></a>
                             <!-- <div class="am-slider-desc">OH PARA PARADISE 是否那么重要 你是否那么地遥远</div> -->
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="am-u-sm-0 am-u-md-0 am-u-lg-12 padding-none">
-                <div class="star am-container"><span><img src="images/star.png">小喵精选</span></div>
+                <div class="star am-container "><span><img src="images/star.png">小喵精选</span></div>
+
+
+
                 <!-- <ul class="padding-none am-gallery am-avg-sm-2 am-avg-md-4 am-avg-lg-2 am-gallery-overlay" data-am-gallery="{ pureview: true }" >
                 <li>
                     <div class="am-gallery-item">
@@ -887,7 +950,8 @@
             <li><a href="#">友情链接</a></li> -->
             </ul>
             <div algin='center' class="btnlogo"><img src="images/logow2.png" /></div>
-            <p>小喵纸样出品<br>©Copyright 2019 南京喵小喵创意设计有限公司<br>All Rights Reserved.<br><span style="font-size: 8">苏ICP备18047537号</span></p>
+            <p>小喵纸样出品<br>©Copyright 2019 南京喵小喵创意设计有限公司<br>All Rights Reserved.<br><span
+                    style="font-size: 8">苏ICP备18047537号</span></p>
             <div class="w2div">
                 <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2
   am-avg-md-2 am-avg-lg-2 am-gallery-overlay" data-am-gallery="{ pureview: true }">
@@ -913,18 +977,36 @@
 
 
     </footer>
+    <!--dialogs-->
+    <div class="am-modal am-modal-alert" tabindex="-1" id="my-alert1">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd"><span><img src="images/star.png" height="25px" width="25px"></span>小喵提醒</div>
+            <hr>
+            <div class="am-modal-bd">
+
+                小喵没有查询到相关结果，你可以换个关键词试试。
+                <br>
+                <br>
+            </div>
+            <div class="am-modal-footer">
+                <span class="am-modal-btn">知道了</span>
+            </div>
+        </div>
+    </div>
 </body>
 
 
 <script>
-    function makeCode(link2qr) {
-        if (!link2qr) {
-            // alert("Input a text");
-            return;
+    function isWeChat() {
+        var ua = navigator.userAgent.toLowerCase();
+        var isWeixin = ua.indexOf('micromessenger') != -1;
+        if (isWeixin) {
+            return true;
+        } else {
+            return false;
         }
-        qrcode.makeCode(link2qr);
     }
-    var Item=[];
+    var Item = [];
     // Item = [{
     //         "id": "0",
     //         'name': '时尚洋装连衣裙',
@@ -957,18 +1039,33 @@
     // '
     // <div  class="am-g"> <div class="am-u-sm-7">    </div> <div class="am-u-sm-5"><div v-bind:src="makeCode(todo.tb)" id="qrcode" style="width:100px; height:100px; "></div></div></div>
     //                                     '
-    $.ready(function(){
-       
+
+    var searchKey = ''
+    $().ready(function () {
+        getarr()
+        $('#jq-btn').click(() => {
+            if (!searchKey) {
+                var searchKey = $("#jq-input").val()
+                //alert(searchKey)
+                getarr(searchKey)
+            } else {
+                console.log("无输入");
+
+                //$('#my-alert1').modal()
+
+            }
+
+        })
     })
-//     $(document).ready(function() {     
-//             $("img.lazy-load").lazyload({ 
-// 　　　　　　　　　　effect : "fadeIn", //渐现，show(直接显示),fadeIn(淡入),slideDown(下拉)
-// 　　　　　　　　　　threshold : 180, //预加载，在图片距离屏幕180px时提前载入
-// 　　　　　　　　　　event: 'click',  // 事件触发时才加载，click(点击),mouseover(鼠标划过),sporty(运动的),默认为scroll（滑动）
-// 　　　　　　　　　　container: $("#container"), // 指定对某容器中的图片实现效果
-// 　　　　　　　　　　//failure_limit ：2 //加载2张可见区域外的图片,lazyload默认在找到第一张不在可见区域里的图片时则不再继续加载,但当HTML容器混乱的时候可能出现可见区域内图片并没加载出来的情况
-// 　　　　　　　　}); 
-// 　　　　　　});
+    //     $(document).ready(function() {     
+    //             $("img.lazy-load").lazyload({ 
+    // 　　　　　　　　　　effect : "fadeIn", //渐现，show(直接显示),fadeIn(淡入),slideDown(下拉)
+    // 　　　　　　　　　　threshold : 180, //预加载，在图片距离屏幕180px时提前载入
+    // 　　　　　　　　　　event: 'click',  // 事件触发时才加载，click(点击),mouseover(鼠标划过),sporty(运动的),默认为scroll（滑动）
+    // 　　　　　　　　　　container: $("#container"), // 指定对某容器中的图片实现效果
+    // 　　　　　　　　　　//failure_limit ：2 //加载2张可见区域外的图片,lazyload默认在找到第一张不在可见区域里的图片时则不再继续加载,但当HTML容器混乱的时候可能出现可见区域内图片并没加载出来的情况
+    // 　　　　　　　　}); 
+    // 　　　　　　});
 
 
     Vue.component('todo-item', {
@@ -976,7 +1073,7 @@
         // "prop"，类似于一个自定义特性。
         // 这个 prop 名为 todo。
         props: ['todo'],
-        template: '  <li  class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left "> <div class="am-u-sm-4 am-list-thumb" id="imgboxq"><a :href=" todo.tb " target="view_window"><img class="am-thumbnail lazy-load" v-bind:data-original="todo.img"/></a></div><div class=" am-u-sm-8 am-list-main"><h2 class="am-list-item-hd"><a :href="todo.tb" target="view_window">&nbsp<b>{{todo.name}}</b> </a></h2><hr>\r<h3><a :href="todo.wx" target="view_window" ><span class="am-icon-book"></span>&nbsp阅读教程 </a></h3><div class="am-list-item-text"><!--内容--></div></div>     <div class="" id="qrboxq" > <div class=" am-thumbnails" >   <div id="tbqrboxq" v-bind:id="\'tbqrboxq\'+todo.id" algin="center" class="am-thumbnail"    alt="" v-bind:alt="todo.tb"   ><h3 class="am-thumbnail-caption"><a :href="todo.tb" target="view_window" ><span class="iconfont icon-taobao"></span>立即购买</a></h3></div>  <div v-bind:id="\'wxqrboxq\'+todo.id"  algin="center" class="am-thumbnail" alt="" v-bind:alt="todo.wx" > <h3 algin="center" class="am-thumbnail-caption" ><a :href="todo.wx" target="view_window" ><span class="am-icon-weixin"> 微信教程</span></a></h3></div> </div></div> </div></li>  '
+        template: '  <li  class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left "> <div class="am-u-sm-4 am-list-thumb" id="imgboxq"><a :href=" todo.tb " target="view_window"><img class="am-thumbnail lazy-load" v-bind:data-original="todo.img"/></a></div><div class=" am-u-sm-8 am-list-main"><h2 class="am-list-item-hd"><a :href="todo.tb" target="view_window">&nbsp<b>{{todo.name}}</b> </a></h2><hr>\r<h3><a :href="todo.wx" target="view_window" ><span class="am-icon-book"></span>&nbsp阅读教程 </a></h3><div class="am-list-item-text"><!--内容--></div></div>     <div class="" id="qrboxq" > <div class=" am-thumbnails" >   <div id="tbqrboxq" v-bind:id="\'tbqrboxq\'+todo.id" algin="center" class="am-thumbnail am-hide-sm-only"    alt="" v-bind:alt="todo.tb"   ><h3 class="am-thumbnail-caption"><a :href="todo.tb" target="view_window" ><span class="iconfont icon-taobao"></span>立即购买</a></h3></div>  <div v-bind:id="\'wxqrboxq\'+todo.id"  algin="center" class="am-thumbnail am-hide-sm-only" alt="" v-bind:alt="todo.wx" > <h3 algin="center" class="am-thumbnail-caption" ><a :href="todo.wx" target="view_window" ><span class="am-icon-weixin"> 微信教程</span></a></h3></div> </div></div> </div></li>  '
     })
     //data-am-scrollspy="{animation:'fade'}"
     var app7 = new Vue({
@@ -990,42 +1087,69 @@
     // $('#tbqrboxq').qrcode($('#tbqrboxq').attr('src'))
     // $('#wxqrboxq').qrcode($('#wxqrboxq').attr('src'))\
     var length = 128
+    var flag_isQRcode = false
     //alert($(window).width())
-    if ($(window).width() < 580) {
-        length = 50
+    // if ($(window).width() < 580) {
+    //     length = 50
+    // }
+
+    function getarr(searchKey) {
+        if (!searchKey) {
+            searchKey = ''
+        }
+        Item.length = 0
+        //alert(Item)
+        $.get("getarr.php?key=" + searchKey, function (data, status) {
+            //alert("数据:\n " + data + "\n状态: " + status);
+            //Item.push(data);
+            //data=data.substring(1,data.length-1);
+
+            if (data == 'no_result') {
+                // $('#my-popover').popover({
+                //     content: 'Popover via JavaScript'
+                // })
+                $('#my-alert1').modal()
+                console.log('search_no_result');
+                return
+            } else {
+
+            }
+
+            var obj = $.parseJSON(data);
+            for (i = 0; i < obj.length; i++) {
+                // obj[i].id+=3;
+                //a=obj[i]
+                Item.push(obj[i]);
+            }
+            setTimeout(reflashQRcode, 500);
+        });
     }
 
-    $.get("getarr.php",function(data,status){
-    //alert("数据:\n " + data + "\n状态: " + status);
-    //Item.push(data);
-    //data=data.substring(1,data.length-1);
-   var obj = $.parseJSON(data);
-   for(i=0;i<obj.length;i++){
-       // obj[i].id+=3;
-    //a=obj[i]
-        Item.push(obj[i]);
-    }
-
-    setTimeout(reflashQRcode,500);  
-  
-  });
 
     //a.id=7;
     //Item.push(a)
-function lazyloadq(){
-    $("img.lazy-load").lazyload({ 
-　　　　　　　　　　effect : "fadeIn", //渐现，show(直接显示),fadeIn(淡入),slideDown(下拉)
-　　　　　　　　　　threshold : 100, //预加载，在图片距离屏幕180px时提前载入
-　　　　　　　　　　event: 'scroll',  // 事件触发时才加载，click(点击),mouseover(鼠标划过),sporty(运动的),默认为scroll（滑动）
-　　　　　　　　　　//container: $("#container"), // 指定对某容器中的图片实现效果
-　　　　　　　　　　//failure_limit ：2 //加载2张可见区域外的图片,lazyload默认在找到第一张不在可见区域里的图片时则不再继续加载,但当HTML容器混乱的时候可能出现可见区域内图片并没加载出来的情况
-　　　　　　　　}); 
-}
+    function lazyloadq() {
+        $("img.lazy-load").lazyload({
+            effect: "fadeIn", //渐现，show(直接显示),fadeIn(淡入),slideDown(下拉)
+            threshold: 100, //预加载，在图片距离屏幕180px时提前载入
+            event: 'scroll', // 事件触发时才加载，click(点击),mouseover(鼠标划过),sporty(运动的),默认为scroll（滑动）
+            //container: $("#container"), // 指定对某容器中的图片实现效果
+            //failure_limit ：2 //加载2张可见区域外的图片,lazyload默认在找到第一张不在可见区域里的图片时则不再继续加载,但当HTML容器混乱的时候可能出现可见区域内图片并没加载出来的情况
+        });
+    }
 
 
     function reflashQRcode() {
+        if (flag_isQRcode) {
+            console.log('qrcode rendered');
+
+        }
         console.log(Item.length);
         for (i = 0; i < Item.length; i++) {
+            if ($("#tbqrboxq" + i).find('canvas').length > 0) {
+                console.log('findcanvas id=' + i);
+                continue
+            }
             $("#tbqrboxq" + i).qrcode({
                 render: "canvas", //table方式 
                 width: length, //宽度 
@@ -1040,6 +1164,7 @@ function lazyloadq(){
             });
             // alert(i)
         }
+        flag_isQRcode = true
 
         lazyloadq()
     }

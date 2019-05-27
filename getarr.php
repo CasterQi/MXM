@@ -9,6 +9,12 @@
 //     'video' => ''}
 
 // );
+$searchKey=$_GET["key"];
+
+$sql = "SELECT * FROM subitem ORDER BY id;";
+if(!empty($searchKey)){
+    $sql="SELECT * FROM subitem WHERE name LIKE '%".$searchKey."%' ORDER BY id";
+}
 
 $servername = "localhost";
 $username = "root";
@@ -22,7 +28,7 @@ if ($conn->connect_error) {
     die("连接失败: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM subitem ORDER BY id;";
+
 $result = $conn->query($sql);
 $arr1;
 $arr="";
@@ -45,8 +51,10 @@ if ($result->num_rows > 0) {
         // //reflashQRcode();
         // </script>';
     }
+    echo "[".substr($arr,0,strlen($arr)-1)."]";
 } else {
-    echo "0 结果";
+    echo 'no_result';
+    //echo "0 结果";
 }
 $conn->close();
 
@@ -56,7 +64,7 @@ $conn->close();
 // $newstr = "{id".$newstr;
 // echo $arr1;
 //echo json_encode($arr);
-echo "[".substr($arr,0,strlen($arr)-1)."]";
+
 
 
 
