@@ -9,7 +9,9 @@
 //     'video' => ''}
 
 // );
-$searchKey=$_GET["key"];
+if (!empty($_GET["key"])){
+    $searchKey=$_GET["key"];
+}
 
 $sql = "SELECT * FROM subitem ORDER BY id;";
 if(!empty($searchKey)){

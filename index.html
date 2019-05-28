@@ -4,9 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="keywords" content="" />
+    <meta name="keywords" content="小喵纸样" />
     <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
     <title>小喵纸样</title>
 
     <!--360 browser -->
@@ -42,106 +43,9 @@
     <script src="js/qrcode.js"></script>
     <script src="js/jquery.lazyload.js"></script>
     <link rel="stylesheet" href="./images/icon/iconfont.css">
-
-    <style type="text/css">
-        header.am-topbar {
-            background: rgb(234, 186, 202);
-        }
-
-        div.star {
-            border-bottom-color: black;
-        }
-
-        button {
-            background-color: blueviolet
-        }
-
-        div.btnlogo {
-            margin: 0 auto;
-        }
-
-        .am-slider-c1 .am-control-nav li a.am-active {
-            background-color: rgb(234, 186, 202);
-        }
-
-        * {
-
-            margin: 0;
-            padding: 0;
-
-        }
-
-        #qrboxq * {
-            margin: 0;
-            padding: 0;
-            /* float: right; */
+    <link rel="stylesheet" href="./css/app.css">
 
 
-
-        }
-
-        #qrboxq>div {
-            float: right;
-            /* float: right; */
-
-        }
-
-        #qrboxq>div>div {
-            float: right;
-        }
-
-        #qrboxq>div>div>h3 {
-            text-align: center;
-        }
-
-        #qrboxq>div>div>canvas {
-            margin-left: 8px;
-            margin-right: 8px;
-        }
-
-        #imgboxq+div>h3 {
-            margin-top: 0
-        }
-
-        .am-form-field {
-            color: #ffb5b6;
-            border: 2px solid #eabaca
-        }
-
-        .jq-btn {
-            background-color: #f08080;
-            border-color: #fdffdf;
-        }
-
-        .am-btn-warning:focus,
-        .am-btn-warning:hover {
-            background-color: #ff6666;
-        }
-
-        @media only screen and (max-width: 640px) {
-
-
-            /*公共*/
-            .star{
-                margin: 10px 0 10px 0
-            }
-            h3,
-            h1,
-            h2 {
-                font-size: 14px;
-            }
-
-            hr {
-                margin: 0 0 3px 0;
-            }
-        }
-
-        /* #imgboxq{
-             border:1px solid #FFF; width:300px; height:300px;overflow:hidden
-        }
-
-        #imgboxq img{max-width:300px;_width:expression(this.width > 300 ? "300px" : this.width);}  */
-    </style>
 
 
 </head>
@@ -151,7 +55,7 @@
     <header class="am-topbar am-topbar-fixed-top wos-header">
         <div class="am-container">
             <h1 class="am-topbar-brand">
-                <a href="#"><img src="images/logo.png" alt=""></a>
+                <a href="javascript:location.reload();"><img src="images/logo.png" alt=""></a>
             </h1>
 
 
@@ -165,10 +69,11 @@
                             class="am-icon-search"></span> </button>
                 </span>
             </div> -->
-            <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-warning jq-btn am-show-sm-only"
+            <button id="jq-topOpenner"
+                class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-warning jq-btn am-show-sm-only am-round"
                 data-am-collapse="{target: '#collapse-head'}">
                 <span class="am-sr-only">导航切换</span>
-                <span class="am-icon-search"></span>
+                <span id='jq-topOpenner-btn' class="am-icon-search"></span>
             </button>
 
             <div class="am-collapse am-topbar-collapse" id="collapse-head">
@@ -200,7 +105,7 @@
             <div class="am-topbar-right">
                 <button class="am-btn am-btn-danger am-topbar-btn am-btn-sm"><span class="am-icon-user"></span> 登录</button>
             </div> -->
-                <form class="am-topbar-form am-topbar-right am-form-inline" role="search">
+                <div class="am-topbar-form am-topbar-right am-form-inline" role="search">
                     <div class="am-form-group">
                         <input type="text" id="jq-input" class="am-form-field am-input-sm am-round"
                             placeholder="请键入关键字">
@@ -213,7 +118,7 @@
                             class="am-icon-search"></span> </button>
                 </span> -->
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </header>
@@ -251,33 +156,7 @@
 
 
                 <!-- <ul class="padding-none am-gallery am-avg-sm-2 am-avg-md-4 am-avg-lg-2 am-gallery-overlay" data-am-gallery="{ pureview: true }" >
-                <li>
-                    <div class="am-gallery-item">
-                        <a href="#">
-                            <img src="Temp-images/lins.png"  alt="远方 有一个地方 那里种有我们的梦想"/>
-                            <h3 class="am-gallery-title">远方 有一个地方 那里种有我们的梦想</h3>
-                            <div class="am-gallery-desc">2375-09-26</div>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="am-gallery-item">
-                        <a href="#">
-                            <img src="Temp-images/lins.png"  alt="远方 有一个地方 那里种有我们的梦想"/>
-                            <h3 class="am-gallery-title">远方 有一个地方 那里种有我们的梦想</h3>
-                            <div class="am-gallery-desc">2375-09-26</div>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="am-gallery-item">
-                        <a href="#">
-                            <img src="Temp-images/lins.png"  alt="远方 有一个地方 那里种有我们的梦想"/>
-                            <h3 class="am-gallery-title">远方 有一个地方 那里种有我们的梦想</h3>
-                            <div class="am-gallery-desc">2375-09-26</div>
-                        </a>
-                    </div>
-                </li>
+               
                 <li>
                     <div class="am-gallery-item">
                         <a href="#">
@@ -350,85 +229,7 @@
                     <ul class="am-list" id='app-7'>
 
 
-                        <!-- <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left"
-                            data-am-scrollspy="{animation:'fade'}">
-                            <div class="am-u-sm-5 am-list-thumb">
-                                <a href="http://www.douban.com/online/11624755/">
-                                    <img src="Temp-images/b2.jpg" alt="我最喜欢的一张画" />
-                                </a>
-
-                            </div>
-
-                            <div class=" am-u-sm-7 am-list-main">
-                                <h3 class="am-list-item-hd"><a
-                                        href="http://www.douban.com/online/11624755/">asdfasdf</a></h3>
-                                <div class="am-list-item-text">你最喜欢的艺术作品</div>
-                                <div class="am-g">
-                                    <div class="am-u-sm-4">
-                                    </div>
-                                    <div class="am-u-sm-8" id='qrboxq'>
-                                        <ul class="am-avg-sm-2 am-thumbnails">
-                                            <li>
-                                                <img algin='center' class="am-thumbnail" src="images/i/app.png"
-                                                    alt="" />
-
-                                            </li>
-                                            <li>
-                                                <img algin='center' class="am-thumbnail" src="images/i/app.png"
-                                                    alt="" />
-
-                                            </li>
-
-                                        </ul>
-
-
-                                    </div>
-                                </div>
-
-                        </li>
-
-
-                        <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left"
-                            data-am-scrollspy="{animation:'fade'}">
-                            <div class="am-u-sm-5 am-list-thumb">
-                                <a href="http://www.douban.com/online/11624755/">
-                                    <img src="Temp-images/b2.jpg" alt="我最喜欢的一张画" />
-                                </a>
-
-                            </div>
-
-                            <div class=" am-u-sm-7 am-list-main">
-                                <h3 class="am-list-item-hd"><a
-                                        href="http://www.douban.com/online/11624755/">asdfasdf</a></h3>
-                                <div class="am-list-item-text">
-                                    你最喜欢的艺术作品，告诉大家它们的------名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，
-                                </div>
-                                <img algin='center' class="am-thumbnail" src="Temp-images/b2.jpg" height="100px"
-                                    width="100px" style="margin: 0;float:right " alt="" />
-                                <img algin='center' class="am-thumbnail" src="Temp-images/b2.jpg" height="100px"
-                                    width="100px" style="margin: 0;float:right " alt="" /> -->
-
-
-                        <!-- <div class="" id="qrboxq" >
-                                            <div class=" am-thumbnails" >
-                                              
-                                                    <div id="tbqrboxq" algin="center" class="am-thumbnail"    alt="" v-bind:alt="todo.tb"
-                                                        />
-                                               
-                                                
-                                                    <div id="wxqrboxq" algin="center" class="am-thumbnail" alt="" v-bind:alt="todo.wx"
-                                                         />
-                                                
-                                            </div>
-                                        </div>
-
-
-                            </div>
-
-                        </li>
-
-
-
+                        <!--
                        
                                 现在我们为每个 todo-item 提供 todo 对象
                                 todo 对象是变量，即其内容可以是动态的。
@@ -984,8 +785,7 @@
             <hr>
             <div class="am-modal-bd">
 
-                小喵没有查询到相关结果，你可以换个关键词试试。
-                <br>
+                小喵没有查询到相关结果，你可以换个关键词试试~
                 <br>
             </div>
             <div class="am-modal-footer">
@@ -993,182 +793,51 @@
             </div>
         </div>
     </div>
+
+
+    <div class="am-modal am-modal-loading am-modal-no-btn" tabindex="-1" id="my-alert2">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">正在载入...</div>
+            <div class="am-modal-bd">
+                <span class="am-icon-spinner am-icon-spin"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="am-modal am-modal-alert" tabindex="-1" id="my-alert3">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd"><span><img src="images/star.png" height="25px" width="25px"></span>小喵提醒</div>
+            <hr>
+            <div class="am-modal-bd am-text-xs">
+                小喵发现您在微信打开了淘宝链接，由于微信规定，您不能直接跳转到淘宝。
+                <div id="weChat_qrbox"></div>
+                请您长按保存上方的二维码，并打开手机淘宝扫码。
+                <br>
+                <b>您也可以点击右上角使用浏览器打开本页。</b>
+
+                <br>
+            </div>
+            <div class="am-modal-footer">
+                <span class="am-modal-btn">我已保存，去淘宝扫一扫</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="am-popup" id="my-popup">
+        <div class="am-popup-inner">
+            <div class="am-popup-hd">
+                <h4 class="am-popup-title">查看大图</h4>
+                <span data-am-modal-close class="am-close"><i class="am-icon-close" style="color: red"></i></span>
+            </div>
+            <div class="am-popup-bd">
+                <img id="imgboxq3">
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src='/js/app.js'></script>
 </body>
-
-
-<script>
-    function isWeChat() {
-        var ua = navigator.userAgent.toLowerCase();
-        var isWeixin = ua.indexOf('micromessenger') != -1;
-        if (isWeixin) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    var Item = [];
-    // Item = [{
-    //         "id": "0",
-    //         'name': '时尚洋装连衣裙',
-    //         'tb': 'https://item.taobao.com/item.htm?id=594352164056',
-    //         'wx': 'https://mp.weixin.qq.com/s/wsIk3J0NxI-2VCAua-_0Lg',
-    //         'img': 'https://img.alicdn.com/imgextra/i3/173939715/O1CN01RYIT232LdWJ7Q51pH_!!173939715.jpg',
-    //         // 'video': ''
-    //     },
-    //     {
-    //         "id": "1",
-    //         'name': '时尚洋装连衣裙',
-    //         'tb': 'https://item.taobao.com/item.htm?id=594352164056',
-    //         'wx': 'https://mp.weixin.qq.com/s/wsIk3J0NxI-2VCAua-_0Lg',
-    //         'img': 'https://img.alicdn.com/imgextra/i3/173939715/O1CN01RYIT232LdWJ7Q51pH_!!173939715.jpg',
-    //        // 'video': ''
-    //     },
-    //     {
-    //         "id": "2",
-    //         'name': 'BY054-儿童翻领短袖T恤',
-    //         'tb': 'https://item.taobao.com/item.htm?id=594353324318',
-    //         'wx': 'https://mp.weixin.qq.com/s/oc8fny-K_O4qE3aWs_mtyA',
-    //         'img': 'https://gd3.alicdn.com/imgextra/i3/173939715/O1CN01o7MrLa2LdWJ86Yz7F_!!173939715.jpg',
-    //         //'video': ''
-    //     }
-    // ]
-
-
-
-
-    // '
-    // <div  class="am-g"> <div class="am-u-sm-7">    </div> <div class="am-u-sm-5"><div v-bind:src="makeCode(todo.tb)" id="qrcode" style="width:100px; height:100px; "></div></div></div>
-    //                                     '
-
-    var searchKey = ''
-    $().ready(function () {
-        getarr()
-        $('#jq-btn').click(() => {
-            if (!searchKey) {
-                var searchKey = $("#jq-input").val()
-                //alert(searchKey)
-                getarr(searchKey)
-            } else {
-                console.log("无输入");
-
-                //$('#my-alert1').modal()
-
-            }
-
-        })
-    })
-    //     $(document).ready(function() {     
-    //             $("img.lazy-load").lazyload({ 
-    // 　　　　　　　　　　effect : "fadeIn", //渐现，show(直接显示),fadeIn(淡入),slideDown(下拉)
-    // 　　　　　　　　　　threshold : 180, //预加载，在图片距离屏幕180px时提前载入
-    // 　　　　　　　　　　event: 'click',  // 事件触发时才加载，click(点击),mouseover(鼠标划过),sporty(运动的),默认为scroll（滑动）
-    // 　　　　　　　　　　container: $("#container"), // 指定对某容器中的图片实现效果
-    // 　　　　　　　　　　//failure_limit ：2 //加载2张可见区域外的图片,lazyload默认在找到第一张不在可见区域里的图片时则不再继续加载,但当HTML容器混乱的时候可能出现可见区域内图片并没加载出来的情况
-    // 　　　　　　　　}); 
-    // 　　　　　　});
-
-
-    Vue.component('todo-item', {
-        // todo-item 组件现在接受一个
-        // "prop"，类似于一个自定义特性。
-        // 这个 prop 名为 todo。
-        props: ['todo'],
-        template: '  <li  class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left "> <div class="am-u-sm-4 am-list-thumb" id="imgboxq"><a :href=" todo.tb " target="view_window"><img class="am-thumbnail lazy-load" v-bind:data-original="todo.img"/></a></div><div class=" am-u-sm-8 am-list-main"><h2 class="am-list-item-hd"><a :href="todo.tb" target="view_window">&nbsp<b>{{todo.name}}</b> </a></h2><hr>\r<h3><a :href="todo.wx" target="view_window" ><span class="am-icon-book"></span>&nbsp阅读教程 </a></h3><div class="am-list-item-text"><!--内容--></div></div>     <div class="" id="qrboxq" > <div class=" am-thumbnails" >   <div id="tbqrboxq" v-bind:id="\'tbqrboxq\'+todo.id" algin="center" class="am-thumbnail am-hide-sm-only"    alt="" v-bind:alt="todo.tb"   ><h3 class="am-thumbnail-caption"><a :href="todo.tb" target="view_window" ><span class="iconfont icon-taobao"></span>立即购买</a></h3></div>  <div v-bind:id="\'wxqrboxq\'+todo.id"  algin="center" class="am-thumbnail am-hide-sm-only" alt="" v-bind:alt="todo.wx" > <h3 algin="center" class="am-thumbnail-caption" ><a :href="todo.wx" target="view_window" ><span class="am-icon-weixin"> 微信教程</span></a></h3></div> </div></div> </div></li>  '
-    })
-    //data-am-scrollspy="{animation:'fade'}"
-    var app7 = new Vue({
-        el: '#app-7',
-        data: {
-            groceryList: Item
-        }
-    })
-
-    //var a = $('#tbboxq').attr('src')
-    // $('#tbqrboxq').qrcode($('#tbqrboxq').attr('src'))
-    // $('#wxqrboxq').qrcode($('#wxqrboxq').attr('src'))\
-    var length = 128
-    var flag_isQRcode = false
-    //alert($(window).width())
-    // if ($(window).width() < 580) {
-    //     length = 50
-    // }
-
-    function getarr(searchKey) {
-        if (!searchKey) {
-            searchKey = ''
-        }
-        Item.length = 0
-        //alert(Item)
-        $.get("getarr.php?key=" + searchKey, function (data, status) {
-            //alert("数据:\n " + data + "\n状态: " + status);
-            //Item.push(data);
-            //data=data.substring(1,data.length-1);
-
-            if (data == 'no_result') {
-                // $('#my-popover').popover({
-                //     content: 'Popover via JavaScript'
-                // })
-                $('#my-alert1').modal()
-                console.log('search_no_result');
-                return
-            } else {
-
-            }
-
-            var obj = $.parseJSON(data);
-            for (i = 0; i < obj.length; i++) {
-                // obj[i].id+=3;
-                //a=obj[i]
-                Item.push(obj[i]);
-            }
-            setTimeout(reflashQRcode, 500);
-        });
-    }
-
-
-    //a.id=7;
-    //Item.push(a)
-    function lazyloadq() {
-        $("img.lazy-load").lazyload({
-            effect: "fadeIn", //渐现，show(直接显示),fadeIn(淡入),slideDown(下拉)
-            threshold: 100, //预加载，在图片距离屏幕180px时提前载入
-            event: 'scroll', // 事件触发时才加载，click(点击),mouseover(鼠标划过),sporty(运动的),默认为scroll（滑动）
-            //container: $("#container"), // 指定对某容器中的图片实现效果
-            //failure_limit ：2 //加载2张可见区域外的图片,lazyload默认在找到第一张不在可见区域里的图片时则不再继续加载,但当HTML容器混乱的时候可能出现可见区域内图片并没加载出来的情况
-        });
-    }
-
-
-    function reflashQRcode() {
-        if (flag_isQRcode) {
-            console.log('qrcode rendered');
-
-        }
-        console.log(Item.length);
-        for (i = 0; i < Item.length; i++) {
-            if ($("#tbqrboxq" + i).find('canvas').length > 0) {
-                console.log('findcanvas id=' + i);
-                continue
-            }
-            $("#tbqrboxq" + i).qrcode({
-                render: "canvas", //table方式 
-                width: length, //宽度 
-                height: length, //高度 
-                text: $('#tbqrboxq' + i).attr('alt') //任意内容 
-            });
-            $("#wxqrboxq" + i).qrcode({
-                render: "canvas", //table方式 
-                width: length, //宽度 
-                height: length, //高度 
-                text: $('#wxqrboxq' + i).attr('alt') //任意内容 
-            });
-            // alert(i)
-        }
-        flag_isQRcode = true
-
-        lazyloadq()
-    }
-</script>
-
 
 </html>
