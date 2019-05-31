@@ -7,7 +7,7 @@ function isWeChat() {
         return false;
     }
 }
-var isWeChat_jq=isWeChat()
+var isWeChat_jq = isWeChat()
 var Item = [];
 // Item = [{
 //         "id": "0",
@@ -63,7 +63,7 @@ $().ready(function () {
         // }
     })
 
-   
+
     $('#jq-topOpenner').click(() => {
         if (!flag_isTopOpened) {
             $('#jq-topOpenner-btn').attr('class', 'am-icon-close')
@@ -86,55 +86,97 @@ $().ready(function () {
     //     }
     // })
 })
-function imgAlert(id){
+
+function imgAlert(id) { //查看大图
     console.log('imgAlert');
-    var link = $('#tbqrboxq'+id).attr('img-src')
-    $('#imgboxq3').attr('src',link)
-    $('#imgboxq3').attr('width',window.screen.width-30)
-    console.log('imgAlert'+ $('#imgboxq3')+link);
+    var link = $('#tbqrboxq' + id).attr('img-src')
+    if ($('#imgboxq3').find('img').length > 0) {
+        $('#imgboxq3').find('img').remove()
+    }
+    $('#imgboxq3').append('<img src="' + link + '">')
+    //$('#imgboxq3').attr('src',link)
+    $('#imgboxq3').find('img').attr('width', (window.screen.width - 30 < 690) ? window.screen.width - 30 : 580)
+    //console.log('imgAlert'+ $('#imgboxq3')+link);
     $('#my-popup').modal()
 }
-function tblink(id){
-    //isWeChat_jq =true
-    console.log('tblink'+id)
-    var link = $('#tbqrboxq'+id).attr('alt')
-    if(isWeChat_jq){
-        var weChat_qrbox=$("#weChat_qrbox")
+
+function tblink(id) {
+    //isWeChat_jq =true//手机端绘制二维码
+    console.log('tblink' + id)
+    var link = $('#tbqrboxq' + id).attr('alt')
+    if (isWeChat_jq) {
+        var weChat_qrbox = $("#weChat_qrbox")
         console.log(weChat_qrbox);
-        
+
         if (weChat_qrbox.find('canvas').length > 0) {
             weChat_qrbox.find('canvas').remove()
-            console.log('findcanvas id=' + id);           
+            console.log('findcanvas id=' + id);
         }
-        if(weChat_qrbox.find('img').length > 0){
+        if (weChat_qrbox.find('img').length > 0) {
             weChat_qrbox.find('img').remove()
         }
         weChat_qrbox.qrcode({
             render: "canvas", //table方式 
-            width: 128, //宽度 
-            height: 128, //高度 
+            width: 192, //宽度 
+            height: 192, //高度 
             text: link //任意内容 
         });
-        weChat_qrbox.find('canvas').attr('id','jq-hide')
+        weChat_qrbox.find('canvas').attr('id', 'jq-hide')
         $('#my-alert3').modal()
+        $("#my-alert3").css("margin-top", "-200px")
+
         weChat_qrbox.append(convertCanvasToImage(weChat_qrbox.find('canvas')[0]))
         //console.log(convertCanvasToImage(weChat_qrbox.find('canvas')[0]));
-        
-    }else{
+
+    } else {
         window.location.href = link;
     }
 }
+
+function wxshop(id){
+    if($('#tbqrboxq'+id).attr('wx-src')){
+        window.location.href = $('#tbqrboxq' + id).attr('wx-src')
+    }else{
+        $('#my-alert4').modal()
+    }
+
+}
+
+function wxshopinit() {
+    console.log('wxshop' )
+    for(var i=0;i<Item.length;i++){
+        if(!$('#tbqrboxq'+i).attr('wx-src')){
+            console.log('s'+i)
+            $('#wxshop'+i).css('background-color',"#e6e6e6")
+        }
+    }
+
+}
+
 function convertCanvasToImage(canvas) {
-	var image = new Image();
-	image.src = canvas.toDataURL("image/png");
-	return image;
+    var image = new Image();
+    image.src = canvas.toDataURL("image/png");
+    return image;
 }
 
 function jq_search() {
     searchKey = $("#jq-input").val()
+
+    function stripscript(s) {
+        var pattern = new RegExp("[\\u5b50\\s`~!@#$^&*()=|{}':;',\\[\\].<>/?~！@#￥……&*（）——|{}【】‘；：”“'。，、？]")
+        var rs = "";
+        for (var i = 0; i < s.length; i++) {
+            rs = rs + s.substr(i, 1).replace(pattern, '');
+        }
+        return rs
+    }
+
+    //var reg = new RegExp("^[^\u4e00-\u9fa5_a-zA-Z0-9]+$", "g")
+
+    searchKey = stripscript(searchKey)
     $('#my-alert2').modal()
     //alert(searchKey)
-    scrollTo(0,0)
+    scrollTo(0, 0)
     //scrollTop()
     getarr(searchKey)
 }
@@ -154,11 +196,11 @@ Vue.component('todo-item', {
     // "prop"，类似于一个自定义特性。
     // 这个 prop 名为 todo。
     props: ['todo'],
-    template: '  <li  class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left "> <div class="am-u-sm-4 am-list-thumb" id="imgboxq"><a href="javascript:;"  v-bind:onclick="\'imgAlert(\'+todo.id+\')\'"><img class="am-thumbnail lazy-load" v-bind:data-original="todo.img"/></a></div><div class=" am-u-sm-8 am-list-main"><h2 class="am-list-item-hd"><a :href="todo.tb" target="view_window">&nbsp<b>{{todo.name}}</b> </a></h2><hr>\r<h3><a :href="todo.wx"><button class="am-btn am-btn-default  am-input-sm am-round jq-btn3"><span class="am-icon-book"></span>&nbsp&nbsp阅读教程 </button></a></h3>\r<div class="" ><h3><a href="javascript:;"  v-bind:onclick="\'tblink(\'+todo.id+\')\'"><button id="tblink" class="am-btn am-btn-default  am-input-sm am-round jq-btn2"><span class="iconfont icon-taobao"></span>&nbsp淘宝链接</button></a></h3></div><div class="am-list-item-text"><!--内容--></div></div>     <div class="" id="qrboxq" > <div class=" am-thumbnails" >   <div id="tbqrboxq" v-bind:id="\'tbqrboxq\'+todo.id" algin="center" class="am-thumbnail am-hide-sm-only" v-bind:img-src="todo.img"  v-bind:alt="todo.tb"   ><h3 class="am-thumbnail-caption"><a :href="todo.tb" target="view_window" ><span class="iconfont icon-taobao"></span>立即购买</a></h3></div>  <div v-bind:id="\'wxqrboxq\'+todo.id"  algin="center" class="am-thumbnail am-hide-sm-only" alt="" v-bind:alt="todo.wx" > <h3 algin="center" class="am-thumbnail-caption" ><a :href="todo.wx" target="view_window" ><span class="am-icon-weixin"> 微信教程</span></a></h3></div> </div></div> </div></li>  '
+    template: '  <li  class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left "> <div class="am-u-sm-5 am-list-thumb" id="imgboxq"><a :href="todo.wx"><img class="am-thumbnail lazy-load" v-bind:data-original="todo.img"/></a></div><div class=" am-u-sm-7 am-list-main"><h2 class="am-list-item-hd"><a>&nbsp<b>{{todo.name}}</b> </a></h2><hr>\r<h3><a :href="todo.wx"><button class="am-btn am-btn-default  am-input-sm am-round jq-btn3"><span class="am-icon-book"></span>&nbsp&nbsp阅读教程 </button></a></h3>\r<div class="" ><h3><a href="javascript:;"  v-bind:onclick="\'tblink(\'+todo.id+\')\'"><button id="tblink" class="am-btn am-btn-default  am-input-sm am-round jq-btn2"><span class="iconfont icon-taobao"></span>&nbsp淘宝链接</button></a></h3></div><div class="" ><h3><a href="javascript:;"  v-bind:onclick="\'wxshop(\'+todo.id+\')\'"><button  v-bind:id="\'wxshop\'+todo.id"  class="am-btn am-btn-default  am-input-sm am-round jq-btn4"><span class="am-icon-weixin"></span>&nbsp微信商城</button></a></h3></div><div class="am-list-item-text"><!--内容--></div></div>     <div class="" id="qrboxq" > <div class=" am-thumbnails" >   <div id="tbqrboxq" v-bind:id="\'tbqrboxq\'+todo.id" algin="center" class="am-thumbnail am-hide-sm-only" v-bind:img-src="todo.img"  v-bind:alt="todo.tb" v-bind:wx-src="todo.wxshop"  ><h3 class="am-thumbnail-caption"><a :href="todo.tb" target="view_window" ><span class="iconfont icon-taobao"></span>立即购买</a></h3></div>  <div v-bind:id="\'wxqrboxq\'+todo.id"  algin="center" class="am-thumbnail am-hide-sm-only" alt="" v-bind:alt="todo.wx" > <h3 algin="center" class="am-thumbnail-caption" ><a :href="todo.wx" target="view_window" ><span class="am-icon-weixin"> 微信教程</span></a></h3></div> </div></div> </div></li>  '
 })
 
 
-//
+//<a   v-bind:onclick="\'imgAlert(\'+todo.id+\')\'">//查看大图
 //<h3><a :href="todo.wx"><span class="am-icon-weixin"></span>&nbsp微信商城</a></h3>
 //data-am-scrollspy="{animation:'fade'}"
 var app7 = new Vue({
@@ -205,9 +247,19 @@ function getarr(searchKey) {
         }
 
         var obj = $.parseJSON(data);
-        for (i = 0; i < obj.length; i++) {
+        var le = obj.length
+        if (obj[le - 1].isSecondSearch == true) {
+            console.log("SecondSearch")
+            $('#secondSearchDialog').css("display", "block")
+        } else {
+            $('#secondSearchDialog').css("display", "none")
+        }
+        for (i = 0; i < le - 1; i++) {
             // obj[i].id+=3;
             //a=obj[i]
+            // if(i==le-1){
+            //     break
+            // }
             Item.push(obj[i]);
         }
         setTimeout(reflashQRcode, 500);
@@ -229,6 +281,7 @@ function lazyloadq() {
 
 
 function reflashQRcode() {
+    wxshopinit()
     if (flag_isQRcode) {
         console.log('qrcode rendered');
 

@@ -77,12 +77,21 @@ div.btnlogo {
     background-color: #DAF9CA;
     border-color: #fdffdf;
 }
+.jq-btn4 {
+    padding: 5px 8px 6px 8px;
+    background-color: #f58b8b;
+    /* background-color: #FFBC01; */
+    border-color: #fdffdf;
+}
 
 .am-btn-warning:focus,
 .am-btn-warning:hover {
     background-color: #ff6666;
 }
 #jq-hide{
+    display:none;
+}
+#secondSearchDialog{
     display:none;
 }
 
