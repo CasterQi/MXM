@@ -19,15 +19,16 @@ $isMatched = preg_match('/^[A-Za-z0-9]+$/', $searchKey, $matches);
 
 
 $isSecond = false;
-$sql = "SELECT * FROM subitem ORDER BY id";
+$sql = "SELECT (@i:=@i+1) as id,subitem.* from subitem,(select @i:=0) as it  ORDER BY name ";
+//$sql = "SELECT * FROM subitem ORDER BY id";
 function whatsSearchKey(){
     global $searchKey;
     global $isSecond;
     global $sql;
     if (!empty($searchKey)) {
         //$sql = "SELECT * FROM subitem WHERE name LIKE '%[" . $searchKey . "]%' ORDER BY id";
-        $sql = "SELECT * FROM subitem WHERE name LIKE " . Split($searchKey, $isSecond) . " ORDER BY id";
-        //print_r($sql);
+        //$sql = "SELECT * FROM subitem WHERE name LIKE " . Split($searchKey, $isSecond) . " ORDER BY id";
+        $sql = "SELECT (@i:=@i+1) AS id,subitem.* FROM subitem,(SELECT @i:=0) AS it WHERE name LIKE " . Split($searchKey, $isSecond) . " ORDER BY name";
     }
 }
 
