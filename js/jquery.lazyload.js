@@ -20,7 +20,7 @@
             event           : "scroll",
             effect          : "show",
             container       : window,
-            skip_invisible  : true
+            skip_invisible  : false
         };
                 
         if(options) {

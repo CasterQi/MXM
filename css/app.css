@@ -91,8 +91,14 @@ div.btnlogo {
 #jq-hide{
     display:none;
 }
+.jq-hide{
+    display:none;
+}
 #secondSearchDialog{
     display:none;
+}
+h3{
+    margin: 0 0 0.8rem 0;
 }
 
 @media only screen and (max-width: 640px) {

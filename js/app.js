@@ -88,12 +88,14 @@ $().ready(function () {
 })
 //endready
 var easter_egg_count = 1
-function easter_egg(){
+
+function easter_egg() {
     easter_egg_count++
-    if(easter_egg_count>5){
+    if (easter_egg_count > 5) {
         window.location.href = "./i/"
     }
 }
+
 function imgAlert(id) { //查看大图
     console.log('imgAlert');
     var link = $('#tbqrboxq' + id).attr('img-src')
@@ -105,6 +107,36 @@ function imgAlert(id) { //查看大图
     $('#imgboxq3').find('img').attr('width', (window.screen.width - 30 < 690) ? window.screen.width - 30 : 580)
     //console.log('imgAlert'+ $('#imgboxq3')+link);
     $('#my-popup').modal()
+}
+
+function qrcode(i) {
+    console.log(i)
+    if ($("#tbqrboxq-a").find('canvas').length > 0) {
+        console.log('findcanvas id=' + i);
+        $("#tbqrboxq-a").find('canvas').remove()
+    }
+    if ($("#wxqrboxq-a").find('canvas').length > 0) {
+        console.log('findcanvas id=' + i);
+        $("#wxqrboxq-a").find('canvas').remove()
+    }
+    
+    $("#tbqrboxq-a").qrcode({
+        render: "canvas", //table方式 
+        width: 192, //宽度 
+        height: 192, //高度 
+        text: $('#tbqrboxq' + i).attr('alt') //任意内容 
+       // text: $('#tbqrboxq' + Item[i].id).attr('alt') //任意内容 
+    });
+    $("#wxqrboxq-a").qrcode({
+        render: "canvas", //table方式 
+        width: 192, //宽度 
+        height: 192, //高度 
+        text: $('#wxqrboxq' + i).attr('alt'), //任意内容 
+        
+    });
+    $('#my-alert5').modal()
+   
+    
 }
 
 function tblink(id) {
@@ -140,34 +172,33 @@ function tblink(id) {
     }
 }
 
-function wxshop(id){
-    if($('#tbqrboxq'+id).attr('wx-src')){
+function wxshop(id) {
+    if ($('#tbqrboxq' + id).attr('wx-src')) {
         window.location.href = $('#tbqrboxq' + id).attr('wx-src')
-    }else{
+    } else {
         $('#my-alert4').modal()
     }
 
 }
 
 function wxshopinit() {
-    console.log('wxshopinit' )
-    for(var i=0;i<Item.length;i++){
-        if(!$('#tbqrboxq'+Item[i].id).attr('wx-src')){
-            $('#wxshop'+Item[i].id).css('background-color',"#e6e6e6")
+    console.log('wxshopinit')
+    for (var i = 0; i < Item.length; i++) {
+        if (!$('#tbqrboxq' + Item[i].id).attr('wx-src')) {
+            $('#wxshop' + Item[i].id).css('background-color', "#e6e6e6")
             //$('#wxshop'+Item[i].id).attr('disabled',true)
-            $('#wxshop'+Item[i].id).css('opacity',0.4)
-        }else{
-            $('#wxshop'+Item[i].id).css('background-color',"#f58b8b")
-            $('#wxshop'+Item[i].id).css('opacity',1)
+            $('#wxshop' + Item[i].id).css('opacity', 0.4)
+        } else {
+            $('#wxshop' + Item[i].id).css('background-color', "#f58b8b")
+            $('#wxshop' + Item[i].id).css('opacity', 1)
             //$('#wxshop'+Item[i].id).attr('disabled',false)   
         }
     }
 }
 
-function wxshopReset(){
+function wxshopReset() {
     console.log('wxshopReset')
-    for(var i=0;i<Item.length;i++){            
-    }
+    for (var i = 0; i < Item.length; i++) {}
 }
 
 function convertCanvasToImage(canvas) {
@@ -178,7 +209,7 @@ function convertCanvasToImage(canvas) {
 
 function jq_search() {
     searchKey = $("#jq-input").val()
-    
+
     function stripscript(s) {
         var pattern = new RegExp("[\\u5b50\\s`~!@#$^&*()=|{}':;',\\[\\].<>/?~！@#￥……&*（）——|{}【】‘；：”“'。，、？]")
         var rs = "";
@@ -213,7 +244,7 @@ Vue.component('todo-item', {
     // "prop"，类似于一个自定义特性。
     // 这个 prop 名为 todo。
     props: ['todo'],
-    template: '  <li  class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left "> <div class="am-u-sm-5 am-u-md-3 am-list-thumb" id="imgboxq"><a :href="todo.wx"><img class="am-thumbnail lazy-load" v-bind:data-original="todo.img"/></a></div><div class=" am-u-sm-7 am-u-md-9 am-list-main"><h2 class="am-list-item-hd"><a>&nbsp<b>{{todo.name}}</b> </a></h2><hr>\r<h3><a :href="todo.wx"><button class="am-btn am-btn-default  am-input-sm am-round jq-btn3"><span class="am-icon-book"></span>&nbsp&nbsp阅读教程 </button></a></h3>\r<div class="" ><h3><a href="javascript:;"  v-bind:onclick="\'tblink(\'+todo.id+\')\'"><button id="tblink" class="am-btn am-btn-default  am-input-sm am-round jq-btn2"><span class="iconfont icon-taobao"></span>&nbsp淘宝链接</button></a></h3></div><div class="" ><h3><a href="javascript:;"  v-bind:onclick="\'wxshop(\'+todo.id+\')\'"><button  v-bind:id="\'wxshop\'+todo.id"  class="am-btn am-btn-default  am-input-sm am-round jq-btn4"><span class="am-icon-weixin"></span>&nbsp微信商城</button></a></h3></div><div class="am-list-item-text"><!--内容--></div></div>     <div class="" id="qrboxq" > <div class=" am-thumbnails" >   <div id="tbqrboxq" v-bind:id="\'tbqrboxq\'+todo.id" algin="center" class="am-thumbnail am-hide-sm-only" v-bind:img-src="todo.img"  v-bind:alt="todo.tb" v-bind:wx-src="todo.wxshop"  ><h3 class="am-thumbnail-caption"><a :href="todo.tb" target="view_window" ><span class="iconfont icon-taobao"></span>立即购买</a></h3></div>  <div v-bind:id="\'wxqrboxq\'+todo.id"  algin="center" class="am-thumbnail am-hide-sm-only" alt="" v-bind:alt="todo.wx" > <h3 algin="center" class="am-thumbnail-caption" ><a :href="todo.wx" target="view_window" ><span class="am-icon-weixin"> 微信教程</span></a></h3></div> </div></div> </div></li>  '
+    template: '  <li  class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left "> <div class="am-u-sm-5 am-u-md-3 am-list-thumb" id="imgboxq"><a :href="todo.wx"><img class="am-thumbnail lazy-load" v-bind:data-original="todo.img" src="./images/btnlogo.png"/></a></div><div class=" am-u-sm-7 am-u-md-9 am-list-main"><h2 class="am-list-item-hd"><a>&nbsp<b>{{todo.name}}</b> </a></h2><hr>\r<h3><a :href="todo.wx"><button class="am-btn am-btn-default  am-input-sm am-round jq-btn3"><span class="am-icon-book"></span>&nbsp&nbsp阅读教程 </button></a></h3>\r<div class="" ><h3><a href="javascript:;"  v-bind:onclick="\'tblink(\'+todo.id+\')\'"><button id="tblink" class="am-btn am-btn-default  am-input-sm am-round jq-btn2"><span class="iconfont icon-taobao"></span>&nbsp淘宝链接</button></a></h3></div><div class="" ><h3><a href="javascript:;"  v-bind:onclick="\'wxshop(\'+todo.id+\')\'"><button  v-bind:id="\'wxshop\'+todo.id"  class="am-btn am-btn-default  am-input-sm am-round jq-btn4"><span class="am-icon-weixin"></span>&nbsp微信商城</button></a></h3></div><h3 class="am-hide-sm-only"><a href="javascript:;"  v-bind:onclick="\'qrcode(\'+todo.id+\')\'"><button   class="am-btn am-btn-default  am-input-sm am-round jq-btn4"><span class="am-icon-qrcode"></span>&nbsp&nbsp二维码&nbsp&nbsp&nbsp</button></a></h3><div class="am-list-item-text"><!--内容--></div></div>     <div class="jq-hide" id="qrboxq" > <div class=" am-thumbnails" >   <div  v-bind:id="\'tbqrboxq\'+todo.id" algin="center" class="am-thumbnail am-hide-sm-only" v-bind:img-src="todo.img"  v-bind:alt="todo.tb" v-bind:wx-src="todo.wxshop"  ><h3 class="am-thumbnail-caption"><a :href="todo.tb" target="view_window" ><span class="iconfont icon-taobao"></span>立即购买</a></h3></div>  <div v-bind:id="\'wxqrboxq\'+todo.id"  algin="center" class="am-thumbnail am-hide-sm-only" alt="" v-bind:alt="todo.wx" > <h3 algin="center" class="am-thumbnail-caption" ><a :href="todo.wx" target="view_window" ><span class="am-icon-weixin"> 微信教程</span></a></h3></div> </div></div> </div></li>  '
 })
 
 
@@ -288,46 +319,56 @@ function getarr(searchKey) {
 //a.id=7;
 //Item.push(a)
 function lazyloadq() {
+    console.log('lazyloaded')
     $("img.lazy-load").lazyload({
         effect: "fadeIn", //渐现，show(直接显示),fadeIn(淡入),slideDown(下拉)
-        threshold: 100, //预加载，在图片距离屏幕180px时提前载入
+        threshold: 500, //预加载，在图片距离屏幕180px时提前载入
         event: 'scroll', // 事件触发时才加载，click(点击),mouseover(鼠标划过),sporty(运动的),默认为scroll（滑动）
-        //container: $("#container"), // 指定对某容器中的图片实现效果
         //failure_limit ：2 //加载2张可见区域外的图片,lazyload默认在找到第一张不在可见区域里的图片时则不再继续加载,但当HTML容器混乱的时候可能出现可见区域内图片并没加载出来的情况
+
+        //container: $("#container"), // 指定对某容器中的图片实现效果
     });
+
 }
 
 
 function reflashQRcode() {
     var length = 128
-   
+
     if (flag_isQRcode) {
         console.log('qrcode rendered');
 
     }
+    //alert(window.screen.width)
     console.log('Item.length = ' + Item.length);
-    for (i = 0; i < Item.length; i++) {
-        if ($("#tbqrboxq" + Item[i].id).find('canvas').length > 0) {
-            console.log('findcanvas id=' + Item[i].id);
-            continue
-        }
-        
-        //console.log($('#tbqrboxq' + Item[i].id).attr('alt'))
-        $("#tbqrboxq" + Item[i].id).qrcode({
-            render: "canvas", //table方式 
-            width: length, //宽度 
-            height: length, //高度 
-            text: $('#tbqrboxq' + Item[i].id).attr('alt') //任意内容 
-        });
-        $("#wxqrboxq" + Item[i].id).qrcode({
-            render: "canvas", //table方式 
-            width: length, //宽度 
-            height: length, //高度 
-            text: $('#wxqrboxq' + Item[i].id).attr('alt') //任意内容 
-        });
-        // alert(i)
-    }
+    // for (i = 0; i < Item.length; i++) {
+
+    //     if(window.screen.width<600){
+    //         break;
+    //     }
+    //     if ($("#tbqrboxq" + Item[i].id).find('canvas').length > 0) {
+    //         console.log('findcanvas id=' + Item[i].id);
+    //         continue
+    //     }
+
+    // //console.log($('#tbqrboxq' + Item[i].id).attr('alt'))
+    // $("#tbqrboxq" + Item[i].id).qrcode({
+    //     render: "canvas", //table方式 
+    //     width: length, //宽度 
+    //     height: length, //高度 
+    //     text: $('#tbqrboxq' + Item[i].id).attr('alt') //任意内容 
+    // });
+    // $("#wxqrboxq" + Item[i].id).qrcode({
+    //     render: "canvas", //table方式 
+    //     width: length, //宽度 
+    //     height: length, //高度 
+    //     text: $('#wxqrboxq' + Item[i].id).attr('alt'), //任意内容 
+    //     src:"./images/star.png"
+    // });
+    // alert(i)
+    //}
     flag_isQRcode = true
-    wxshopinit()//disable微信按钮
+    wxshopinit() //disable微信按钮
     lazyloadq()
+
 }

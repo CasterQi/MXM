@@ -133,25 +133,24 @@
                             <!-- <div class="am-slider-desc">远方 有一个地方 那里种有我们的梦想</div> -->
 
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="#"><img src="images/图层 1.jpg"></a>
-                            <!-- <div class="am-slider-desc">某天 也许会相遇 相遇在这个好地方</div> -->
-
-                        </li>
+                            
+                        </li> -->
                         <li>
                             <a href="#"><img src="images/图层 2.jpg"></a>
-                            <!-- <div class="am-slider-desc">不要太担心 只因为我相信 终会走过这条遥远的道路</div> -->
-
+                            
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="#"><img src="images/图层 3.jpg"></a>
-                            <!-- <div class="am-slider-desc">OH PARA PARADISE 是否那么重要 你是否那么地遥远</div> -->
-                        </li>
+                            
+                        </li> -->
                     </ul>
                 </div>
             </div>
             <div class="am-u-sm-0 am-u-md-0 am-u-lg-12 padding-none">
-                <div id="Easter-egg" class="star am-container " onclick="easter_egg()"><span><img src="images/star.png">小喵精选</span></div>
+                <div id="Easter-egg" class="star am-container " onclick="easter_egg()"><span><img
+                            src="images/star.png">小喵精选</span></div>
 
 
 
@@ -228,9 +227,13 @@
                 <div class="am-list-news-bd">
                     <ul class="am-list" id='app-7'>
 
-                            <li id="secondSearchDialog" class=" am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left "  style="padding: 3px 0">
-                                    <h3 class="am-list-item-hd am-text-center" style="font-size: 14px;color:#888"><i class="am-icon-warning" style="color: #F37B1D" ></i> 小喵没有查询到精确结果，<br>以下是一些可能相关的商品。</h3>
-                            </li>
+                        <li id="secondSearchDialog"
+                            class=" am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left "
+                            style="padding: 3px 0">
+                            <h3 class="am-list-item-hd am-text-center" style="font-size: 14px;color:#888"><i
+                                    class="am-icon-warning" style="color: #F37B1D"></i> 小喵没有查询到精确结果，<br>以下是一些可能相关的商品。
+                            </h3>
+                        </li>
                         <!--
                        
                                 现在我们为每个 todo-item 提供 todo 对象
@@ -832,25 +835,55 @@
                 <span data-am-modal-close class="am-close"><i class="am-icon-close" style="color: red"></i></span>
             </div>
             <div class="am-popup-bd" id="imgboxq3">
-                
+
             </div>
         </div>
     </div>
 
     <div class="am-modal am-modal-alert" tabindex="-1" id="my-alert4">
-            <div class="am-modal-dialog">
-                <div class="am-modal-hd"><span><img src="images/star.png" height="25px" width="25px"></span>小喵提醒</div>
-                <hr>
-                <div class="am-modal-bd">
-    
-                    这款商品暂时还没有上架微信商城,您可以去淘宝看看~
-                    <br>
-                </div>
-                <div class="am-modal-footer">
-                    <span class="am-modal-btn">知道了</span>
-                </div>
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd"><span><img src="images/star.png" height="25px" width="25px"></span>小喵提醒</div>
+            <hr>
+            <div class="am-modal-bd">
+
+                这款商品暂时还没有上架微信商城,您可以去淘宝看看~
+                <br>
+            </div>
+            <div class="am-modal-footer">
+                <span class="am-modal-btn">知道了</span>
             </div>
         </div>
+    </div>
+
+    <div class="am-modal am-modal-alert" tabindex="-1" id="my-alert5">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd"><span><img src="images/star.png" height="25px" width="25px"></span>小喵提醒</div>
+            <hr>
+            <div class="am-modal-bd">
+
+                <div id="qrbox_alert"></div>
+
+                <br>
+                <div >
+                    <div class=" am-thumbnails">
+                        <div id="tbqrboxq-a"  algin="center"class="am-thumbnail ">
+                            <h3 class="am-thumbnail-caption"><a  target="view_window"><span class="iconfont icon-taobao"></span>立即购买</a></h3>
+                        </div>
+                        <div id="wxqrboxq-a" algin="center" class="am-thumbnail " >
+                            <h3 algin="center" class="am-thumbnail-caption"><a target="view_window"><span class="am-icon-weixin"> 微信教程</span></a></h3>
+                        </div>
+                    </div>
+                </div>
+
+
+                <br>
+            </div>
+            <div class="am-modal-footer">
+                <span class="am-modal-btn">好</span>
+            </div>
+        </div>
+    </div>
+
 
     <script src='/js/app.js'></script>
 </body>

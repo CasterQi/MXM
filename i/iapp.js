@@ -235,7 +235,7 @@ Vue.component('todo-item', {
     // "prop"，类似于一个自定义特性。
     // 这个 prop 名为 todo。
     props: ['todo'],
-    template: '  <li  class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left "> <div class="am-u-sm-5 am-u-md-3 am-list-thumb" id="imgboxq"><a :href="todo.wx"><img class="am-thumbnail lazy-load" v-bind:data-original="todo.img"/></a></div><div class=" am-u-sm-7 am-u-md-9 am-list-main"><h2 class="am-list-item-hd"><a>&nbsp<b>{{todo.name}}</b> </a></h2><hr>\r<div class="am-g"><div class="am-u-sm-6"><h3><a  v-bind:onclick="\'imgAlert(\'+todo.id+\')\'"><button class="am-btn am-btn-default  am-input-sm am-round jq-btn5"><span class="am-icon-file-excel-o"></span>&nbsp&nbsp设计图纸</button></a></h3>\r<h3><a v-bind:onclick="\'pdfAlert(\'+todo.id+\')\'"><button class="am-btn am-btn-default  am-input-sm am-round jq-btn5"><span class="am-icon-file-pdf-o"></span>&nbsp&nbsp详情介绍 </button></a></h3>\r<h3><a :href="todo.wx"><button class="am-btn am-btn-default  am-input-sm am-round jq-btn5"><span class="am-icon-file-image-o"></span>&nbsp&nbsp更多图片 </button></a></h3>\r<h3><a :href="todo.wx"><button class="am-btn am-btn-default  am-input-sm am-round jq-btn5"><span class="am-icon-download"></span>&nbsp&nbsp工程文件 </button></a></h3>\r</div><div class="am-u-sm-6"><h3><a :href="todo.wx"><button class="am-btn am-btn-default  am-input-sm am-round jq-btn3"><span class="am-icon-book"></span>&nbsp&nbsp阅读教程 </button></a></h3>\r<div class="" ><h3><a href="javascript:;"  v-bind:onclick="\'tblink(\'+todo.id+\')\'"><button id="tblink" class="am-btn am-btn-default  am-input-sm am-round jq-btn2"><span class="iconfont icon-taobao"></span>&nbsp淘宝链接</button></a></h3></div><div class="" ><h3><a href="javascript:;"  v-bind:onclick="\'wxshop(\'+todo.id+\')\'"><button  v-bind:id="\'wxshop\'+todo.id"  class="am-btn am-btn-default  am-input-sm am-round jq-btn4"><span class="am-icon-weixin"></span>&nbsp微信商城</button></a></h3></div><div class="am-list-item-text"><!--内容--></div></div></div></div><div hidden v-bind:id="\'dataq\'+todo.id" v-bind:wx-src="todo.wxshop" v-bind:tb-src="todo.tb"></div></li> '
+    template: '  <li  class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left "> <div class="am-u-sm-5 am-u-md-3 am-list-thumb" id="imgboxq"><a :href="todo.wx"><img class="am-thumbnail lazy-load" v-bind:data-original="todo.img"/></a></div><div class=" am-u-sm-7 am-u-md-9 am-list-main"><h2 class="am-list-item-hd"><a>&nbsp<b>{{todo.name}}</b> </a></h2><hr>\r<div class="am-g"><div class="am-u-sm-6"><h3><a  v-bind:onclick="\'imgAlert(\'+todo.id+\')\'"><button class="am-btn am-btn-default  am-input-sm am-round jq-btn5"><span class="am-icon-file-excel-o"></span>&nbsp&nbsp设计图纸</button></a></h3>\r<h3><a v-bind:onclick="\'pdfAlert(\'+todo.id+\')\'"><button class="am-btn am-btn-default  am-input-sm am-round jq-btn5"><span class="am-icon-file-pdf-o"></span>&nbsp&nbsp详情介绍 </button></a></h3>\r<h3><a :href="todo.wx"><button class="am-btn am-btn-default  am-input-sm am-round jq-btn5"><span class="am-icon-file-image-o"></span>&nbsp&nbsp更多图片 </button></a></h3>\r<h3 class="am-hide-sm-only"><a :href="todo.wx"><button class="am-btn am-btn-default  am-input-sm am-round jq-btn5"><span class="am-icon-download"></span>&nbsp&nbsp工程文件 </button></a></h3>\r</div><div class="am-u-sm-6"><h3><a :href="todo.wx"><button class="am-btn am-btn-default  am-input-sm am-round jq-btn3"><span class="am-icon-book"></span>&nbsp&nbsp阅读教程 </button></a></h3>\r<div class="" ><h3><a href="javascript:;"  v-bind:onclick="\'tblink(\'+todo.id+\')\'"><button id="tblink" class="am-btn am-btn-default  am-input-sm am-round jq-btn2"><span class="iconfont icon-taobao"></span>&nbsp淘宝链接</button></a></h3></div><div class="" ><h3><a href="javascript:;"  v-bind:onclick="\'wxshop(\'+todo.id+\')\'"><button  v-bind:id="\'wxshop\'+todo.id"  class="am-btn am-btn-default  am-input-sm am-round jq-btn4"><span class="am-icon-weixin"></span>&nbsp微信商城</button></a></h3></div><div class="am-list-item-text"><!--内容--></div></div></div></div><div hidden v-bind:id="\'dataq\'+todo.id" v-bind:wx-src="todo.wxshop" v-bind:tb-src="todo.tb"></div></li> '
 })
 
 {/* <div class="" id="qrboxq" > <div class=" am-thumbnails" >   <div id="tbqrboxq" v-bind:id="\'tbqrboxq\'+todo.id" algin="center" class="am-thumbnail am-hide-sm-only" v-bind:img-src="todo.img"  v-bind:alt="todo.tb" v-bind:wx-src="todo.wxshop"  ><h3 class="am-thumbnail-caption"><a :href="todo.tb" target="view_window" ><span class="iconfont icon-taobao"></span>立即购买</a></h3></div>  <div v-bind:id="\'wxqrboxq\'+todo.id"  algin="center" class="am-thumbnail am-hide-sm-only" alt="" v-bind:alt="todo.wx" > <h3 algin="center" class="am-thumbnail-caption" ><a :href="todo.wx" target="view_window" ><span class="am-icon-weixin"> 微信教程</span></a></h3></div> </div></div> </div>  */}
@@ -312,7 +312,7 @@ function getarr(searchKey) {
 function lazyloadq() {
     $("img.lazy-load").lazyload({
         effect: "fadeIn", //渐现，show(直接显示),fadeIn(淡入),slideDown(下拉)
-        threshold: 100, //预加载，在图片距离屏幕180px时提前载入
+        threshold: 500, //预加载，在图片距离屏幕180px时提前载入
         event: 'scroll', // 事件触发时才加载，click(点击),mouseover(鼠标划过),sporty(运动的),默认为scroll（滑动）
         //container: $("#container"), // 指定对某容器中的图片实现效果
         //failure_limit ：2 //加载2张可见区域外的图片,lazyload默认在找到第一张不在可见区域里的图片时则不再继续加载,但当HTML容器混乱的时候可能出现可见区域内图片并没加载出来的情况
@@ -329,24 +329,29 @@ function reflashQRcode() {
     }
     console.log('Item.length = ' + Item.length);
     for (i = 0; i < Item.length; i++) {
+        //alert(window.screen.width)
+        if(window.screen.width<600){
+            break;
+        }
         if ($("#tbqrboxq" + Item[i].id).find('canvas').length > 0) {
             console.log('findcanvas id=' + Item[i].id);
             continue
         }
         
-        //console.log($('#tbqrboxq' + Item[i].id).attr('alt'))
-        $("#tbqrboxq" + Item[i].id).qrcode({
-            render: "canvas", //table方式 
-            width: length, //宽度 
-            height: length, //高度 
-            text: $('#tbqrboxq' + Item[i].id).attr('alt') //任意内容 
-        });
-        $("#wxqrboxq" + Item[i].id).qrcode({
-            render: "canvas", //table方式 
-            width: length, //宽度 
-            height: length, //高度 
-            text: $('#wxqrboxq' + Item[i].id).attr('alt') //任意内容 
-        });
+        // //console.log($('#tbqrboxq' + Item[i].id).attr('alt'))
+        // $("#tbqrboxq" + Item[i].id).qrcode({
+        //     render: "canvas", //table方式 
+        //     width: length, //宽度 
+        //     height: length, //高度 
+        //     text: $('#tbqrboxq' + Item[i].id).attr('alt'), //任意内容 
+            
+        // });
+        // $("#wxqrboxq" + Item[i].id).qrcode({
+        //     render: "canvas", //table方式 
+        //     width: length, //宽度 
+        //     height: length, //高度 
+        //     text: $('#wxqrboxq' + Item[i].id).attr('alt') //任意内容 
+        // });
         // alert(i)
     }
     flag_isQRcode = true

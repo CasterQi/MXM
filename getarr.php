@@ -19,16 +19,16 @@ $isMatched = preg_match('/^[A-Za-z0-9]+$/', $searchKey, $matches);
 
 
 $isSecond = false;
-$sql = "SELECT (@i:=@i+1) as id,subitem.* from subitem,(select @i:=0) as it  ORDER BY name ";
-//$sql = "SELECT * FROM subitem ORDER BY id";
+//$sql = "SELECT (@i:=@i+1) as id,subitem.* from subitem,(select @i:=0) as it  ORDER BY name ";
+$sql = "SELECT * FROM subitem ORDER BY id DESC";
 function whatsSearchKey(){
     global $searchKey;
     global $isSecond;
     global $sql;
     if (!empty($searchKey)) {
         //$sql = "SELECT * FROM subitem WHERE name LIKE '%[" . $searchKey . "]%' ORDER BY id";
-        //$sql = "SELECT * FROM subitem WHERE name LIKE " . Split($searchKey, $isSecond) . " ORDER BY id";
-        $sql = "SELECT (@i:=@i+1) AS id,subitem.* FROM subitem,(SELECT @i:=0) AS it WHERE name LIKE " . Split($searchKey, $isSecond) . " ORDER BY name";
+        $sql = "SELECT * FROM subitem WHERE tag LIKE " . Split($searchKey, $isSecond) . " ORDER BY id DESC";
+        //$sql = "SELECT (@i:=@i+1) AS id,subitem.* FROM subitem,(SELECT @i:=0) AS it WHERE name LIKE " . Split($searchKey, $isSecond) . " ORDER BY name";
     }
 }
 
@@ -78,7 +78,7 @@ function search()
     global $isMatched;
     $servername = "localhost";
     $username = "root";
-    $password = "root";
+    $password = "passw0rd";
     $dbname = "item";
 
     // 创建连接
@@ -98,6 +98,9 @@ function search()
             //$i=0;
             // echo "id: " . $row["Id"]. " - Name: " . $row["name"]. " " . $row["tb"]. "<br>";
             //var_dump($row);
+            if(empty($row["wx"])){
+                $row["wx"]=$row["txvideo"];
+            }
             $arr = $arr . '{ "id": "' . $row["id"] . '","name": "' . $row["name"] . '","tb": "' . $row["tb"] . '","wx": "' . $row["wx"] . '","img": "' . $row["img"]. '","wxshop": "' . $row["wxshop"]  . '"},';
             //, "video": "" 
             //array_push($arr,$arr);
